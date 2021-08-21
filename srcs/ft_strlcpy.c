@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: klever <klever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 13:58:05 by klever            #+#    #+#             */
-/*   Updated: 2021/08/20 02:11:41 by klever           ###   ########.fr       */
+/*   Created: 2021/08/19 15:11:31 by klever            #+#    #+#             */
+/*   Updated: 2021/08/19 15:15:12 by klever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-void	free_matrix(char **matrix)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int	i;
+	size_t		len;
+	size_t		i;
 
 	i = 0;
-	while (matrix[i])
-		free(matrix[i++]);
-	free(matrix);
-}
-
-void	check_argv(int argc)
-{
-	if (argc != 5)
+	if (!src)
+		return (0);
+	len = ft_strlen(src);
+	if (dstsize == 0)
+		return (len);
+	dstsize--;
+	while (dstsize > 0 && src[i] != '\0')
 	{
-		printf("Arg: ./pipex infile comand1 comand2 outfile\n");
-		exit(0);
+		dst[i] = src[i];
+		i++;
+		dstsize--;
 	}
-}
-
-void	check_fd(int fd, char *file)
-{
-	if (fd == -1)
-	{
-		ft_putstr_fd("pipex: no such file or directory: ", 2);
-		ft_putendl_fd(file, 2);
-		exit(0);
-	}
+	dst[i] = '\0';
+	return (len);
 }

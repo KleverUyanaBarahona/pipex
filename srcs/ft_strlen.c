@@ -1,42 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: klever <klever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 13:58:05 by klever            #+#    #+#             */
-/*   Updated: 2021/08/20 02:11:41 by klever           ###   ########.fr       */
+/*   Created: 2021/08/19 15:12:12 by klever            #+#    #+#             */
+/*   Updated: 2021/08/19 15:12:18 by klever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-void	free_matrix(char **matrix)
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	count;
 
-	i = 0;
-	while (matrix[i])
-		free(matrix[i++]);
-	free(matrix);
-}
-
-void	check_argv(int argc)
-{
-	if (argc != 5)
-	{
-		printf("Arg: ./pipex infile comand1 comand2 outfile\n");
-		exit(0);
-	}
-}
-
-void	check_fd(int fd, char *file)
-{
-	if (fd == -1)
-	{
-		ft_putstr_fd("pipex: no such file or directory: ", 2);
-		ft_putendl_fd(file, 2);
-		exit(0);
-	}
+	count = 0;
+	while (str[count] != '\0')
+		count++;
+	return (count);
 }

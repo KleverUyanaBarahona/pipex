@@ -1,0 +1,12 @@
+total 160
+drwxr-xr-x@ 11 klever  staff    352 21 ago 04:49 .
+drwx------+ 21 klever  staff    672 20 ago 13:56 ..
+drwxr-xr-x  13 klever  staff    416 17 ago 13:57 .git
+-rw-r--r--   1 klever  staff   1720 21 ago 04:48 Makefile
+drwxr-xr-x   3 klever  staff     96 13 ago 13:37 include
+-rwxr-xr-x   1 klever  staff  50976 21 ago 04:48 pipex
+-rw-r--r--   1 klever  staff  16240 21 ago 04:48 pipex.a
+-rw-r--r--   1 klever  staff   2509 20 ago 02:12 pipex.c
+-rw-r--r--   1 klever  staff   2604 21 ago 04:48 pipex.o
+-rwx------   1 klever  staff      0 21 ago 04:50 salida
+drwxr-xr-x  26 klever  staff    832 21 ago 04:48 srcs

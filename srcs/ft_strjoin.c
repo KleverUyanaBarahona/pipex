@@ -1,42 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: klever <klever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 13:58:05 by klever            #+#    #+#             */
-/*   Updated: 2021/08/20 02:11:41 by klever           ###   ########.fr       */
+/*   Created: 2021/08/21 03:51:44 by klever            #+#    #+#             */
+/*   Updated: 2021/08/21 03:53:40 by klever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-void	free_matrix(char **matrix)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
+	char	*dest;
+	size_t	len;
 
-	i = 0;
-	while (matrix[i])
-		free(matrix[i++]);
-	free(matrix);
-}
-
-void	check_argv(int argc)
-{
-	if (argc != 5)
-	{
-		printf("Arg: ./pipex infile comand1 comand2 outfile\n");
-		exit(0);
-	}
-}
-
-void	check_fd(int fd, char *file)
-{
-	if (fd == -1)
-	{
-		ft_putstr_fd("pipex: no such file or directory: ", 2);
-		ft_putendl_fd(file, 2);
-		exit(0);
-	}
+	if (!s1 || !s2)
+		return (NULL);
+	len = (ft_strlen(s1) + ft_strlen(s2) + 1);
+	dest = (char *)malloc(sizeof(char) * len + 1);
+	if (!dest)
+		return (NULL);
+	ft_strlcpy(dest, s1, len);
+	ft_strlcat(dest, s2, len);
+	dest[len] = '\0';
+	return (dest);
 }

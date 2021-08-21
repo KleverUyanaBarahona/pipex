@@ -1,42 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: klever <klever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 13:58:05 by klever            #+#    #+#             */
-/*   Updated: 2021/08/20 02:11:41 by klever           ###   ########.fr       */
+/*   Created: 2021/08/21 03:47:26 by klever            #+#    #+#             */
+/*   Updated: 2021/08/21 03:47:43 by klever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-void	free_matrix(char **matrix)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
+	unsigned char	*ss1;
+	unsigned char	*ss2;
+	size_t			i;
+	size_t			j;
 
+	ss1 = (unsigned char *)s1;
+	ss2 = (unsigned char *)s2;
 	i = 0;
-	while (matrix[i])
-		free(matrix[i++]);
-	free(matrix);
-}
-
-void	check_argv(int argc)
-{
-	if (argc != 5)
-	{
-		printf("Arg: ./pipex infile comand1 comand2 outfile\n");
-		exit(0);
-	}
-}
-
-void	check_fd(int fd, char *file)
-{
-	if (fd == -1)
-	{
-		ft_putstr_fd("pipex: no such file or directory: ", 2);
-		ft_putendl_fd(file, 2);
-		exit(0);
-	}
+	j = 0;
+	if (n == 0)
+		return (0);
+	while ((ss1[i] == ss2[i] && ss1[i] != '\0') && i < n)
+		i++;
+	if (i == n)
+		i--;
+	j = ss1[i] - ss2[i];
+	return (j);
 }
