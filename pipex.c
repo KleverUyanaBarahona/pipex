@@ -6,13 +6,13 @@
 /*   By: klever <klever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 19:00:42 by klever            #+#    #+#             */
-/*   Updated: 2021/08/20 02:12:56 by klever           ###   ########.fr       */
+/*   Updated: 2021/08/23 01:26:10 by klever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/pipex.h"
 
-static void	child_process_start (int *fd, char **argv, char **envp)
+static void	child_process_start(int *fd, char **argv, char **envp)
 {
 	int		fd_infile;
 	char	*path;

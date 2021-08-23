@@ -6,13 +6,15 @@
 #    By: klever <klever@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/13 13:36:25 by klever            #+#    #+#              #
-#    Updated: 2021/08/21 04:48:36 by klever           ###   ########.fr        #
+#    Updated: 2021/08/23 01:47:21 by klever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= pipex.a
-SRC= ./srcs/search_path.c ./srcs/utils.c ./pipex.c ./srcs/ft_split.c ./srcs/ft_strchr.c ./srcs/ft_strlen.c \
-	./srcs/ft_strlcpy.c ./srcs/ft_putstr_fd.c ./srcs/ft_putendl_fd.c ./srcs/ft_putchar_fd.c ./srcs/ft_strlcat.c ./srcs/ft_strjoin.c ./srcs/ft_strncmp.c
+SRC= ./srcs/search_path.c ./srcs/utils.c ./pipex.c ./srcs/ft_split.c \
+	./srcs/ft_strchr.c ./srcs/ft_strlen.c ./srcs/ft_strlcpy.c \
+	./srcs/ft_putstr_fd.c ./srcs/ft_putendl_fd.c ./srcs/ft_putchar_fd.c \
+	./srcs/ft_strlcat.c ./srcs/ft_strjoin.c ./srcs/ft_strncmp.c
 FLAGS= gcc -Wextra -Werror -Wall
 OBJ1=$(SRC:.c=.o)
 OBJ=$(OBJ1:.m=.o)
@@ -36,6 +38,7 @@ clean:
 fclean: clean
 		@rm -rf $(NAME)
 		@rm -rf pipex
+		@rm -rf outfile
 
 re: fclean all
 
